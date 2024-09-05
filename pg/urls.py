@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from payment.views import razorpay_form,razorpay_redirect, check_payment
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',razorpay_form,name='razorpay'),
+    path("razorpay_redirect/", razorpay_redirect, name="razorpay_redirect"),
+    path('check_payment/<order>/',check_payment),
 ]

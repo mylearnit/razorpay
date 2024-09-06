@@ -8,13 +8,11 @@
         $.post("http://localhost:8100", function (data) {
             console.log(data)
             var options = {
-                "key": data.razor_pay_key, // Enter the Key ID generated from the Dashboard
-                // "amount": 23400,//data.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-                // "currency": "INR",
+                "key": data.razor_pay_key,
                 "name": "SIB FD", //your business name
                 "description": "FD account opening",
                 "image": "https://videokyc.southindianbank.com/static/images/logo_white.png",
-                "order_id": data.order_id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                "order_id": data.order_id, 
                 "handler": function (response) {
                     $.ajax({
                         type: "POST",
@@ -32,10 +30,10 @@
                     });
                 },
                 // "callback_url": data.callback_url,
-                "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+                "prefill": { 
                     "name": data.email, //your customer's name
                     "email": data.email,
-                    "contact": data.mobile //Provide the customer's phone number for better conversion rates 
+                    "contact": data.mobile
                 },
                 "notes": {
                     "razorpay_order_id": data.order_id

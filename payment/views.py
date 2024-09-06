@@ -19,11 +19,11 @@ def razorpay_form(request):
             "payment_capture": "1",
             # "method": "netbanking",
             "currency": "INR",
-            # "bank_account": {
-            #     "account_number": "77770121225995",
-            #     "name": "suhail",
-            #     "ifsc": "FDRL0007777",
-            # },
+            "bank_account": {
+                "account_number": "77770121225995",
+                "name": "suhail",
+                "ifsc": "FDRL0007777",
+            },
         }
     )
     return JsonResponse(
